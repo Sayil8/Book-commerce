@@ -1,5 +1,7 @@
 # app/controllers/application_controller.rb
 class ApplicationController < ActionController::API
+  include Authentication
+
   rescue_from QueryBuilderError, with: :builder_error
   rescue_from RepresentationBuilderError, with: :builder_error
   rescue_from ActiveRecord::RecordNotFound, with: :resource_not_found
